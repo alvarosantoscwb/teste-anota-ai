@@ -102,7 +102,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 135px; /* altura mínima para uniformizar */
+  min-height: 135px;
 }
 
 .type-landscape {
