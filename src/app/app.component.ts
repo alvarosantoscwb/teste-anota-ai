@@ -1,12 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CardApiService } from './services/card.service';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'teste-anota-ai';
+  cards: any[] = [];
+
+  constructor(private cardApiService: CardApiService) {
+    this.cardApiService.getCards().subscribe((data: any) => {
+      this.cards = data;
+    });
+  }
+  onSearch(searchTerm: string) {
+    console.log('Texto da busca:', searchTerm);
+  }
 }
