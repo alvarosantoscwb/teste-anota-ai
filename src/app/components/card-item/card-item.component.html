@@ -1,1 +1,18 @@
-<p>card-item works!</p>
+<div class="card">
+  <button class="close-btn" (click)="deleteCard()">
+    <img src="/assets/close.svg" alt="Fechar" />
+  </button>
+
+  <div class="image-container">
+    <img class="card-img" [src]="card.img" [alt]="card.title" />
+    <span class="badge" [ngClass]="getTypeClass()">
+      {{ getTypeName() }}
+    </span>
+  </div>
+  <div class="text-container">
+    <span class="card-title">{{ card.title }}</span>
+  </div>
+  <div>
+    <span class="card-description">{{ card.description }}</span>
+  </div>
+</div>

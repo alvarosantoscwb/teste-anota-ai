@@ -1,11 +1,21 @@
-<main>
-  <app-header (search)="onSearch($event)"></app-header>
-</main>
-<style>
-  .card {
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-</style>
+<app-header></app-header>
+<div>
+  <app-search (searchEvent)="onSearch($event)"></app-search>
+  <main class="main-container">
+    <div
+      [ngClass]="{
+        'cards-space': filteredCards.length <= 5,
+        'cards-container': true
+      }"
+    >
+      <app-card
+        *ngFor="let card of filteredCards"
+        [card]="card"
+        (delete)="deleteCard($event)"
+      ></app-card>
+      <div *ngIf="filteredCards.length === 0" class="no-results">
+        Nenhum resultado encontrado
+      </div>
+    </div>
+  </main>
+</div>

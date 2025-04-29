@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+  padding: 1px;
+  width: 100%;
+  margin: 0 auto;
+}
+.cards-space {
+  gap: 60px;
+}

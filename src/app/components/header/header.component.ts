@@ -6,12 +6,4 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
-  searchText: string = '';
-
-  @Output() search = new EventEmitter<string>();
-
-  onSearchChange() {
-    this.search.emit(this.searchText);
-  }
-}
+export class HeaderComponent {}
